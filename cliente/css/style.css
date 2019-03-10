@@ -1,0 +1,53 @@
+/* ----FOMR---- */
+
+label {
+    font-size: 1.1rem;
+}
+p {
+    font-size: 1.1rem;
+}
+/* ----CONTENT---- */
+.content {
+    background: #afafaf;
+    background-size: cover;
+    height: 100vh; /* vh=altura de la pantalla 100% */
+    background-repeat: no-repeat;
+}
+.fixed-top {
+    background:rgba(0,0,0,.5);
+}
+
+
+/* ----CAROUSEL---- */
+.carousel-inner{
+ height: 300px;
+ 
+}
+@media (min-width:576px){ /* Cuando la pantalla tenga minimo 768px */
+
+    .carousel-inner{
+        height: 400px;
+    }
+}
+@media (min-width:768px){ /* Cuando la pantalla tenga minimo 768px */
+
+    .carousel-inner{
+        height: 500px;
+    }
+}
+/* ----NAVBAR---- */
+.navbar-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0);
+}
+.fa, .fas {
+    font-size: 26px;
+    font-weight: normal;
+}
+a .fa{
+    color:#fff;
+}
+/* ----MODAL LOGIN---- */
+
+.modal-header {
+    border: none;
+}
