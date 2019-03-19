@@ -1,9 +1,9 @@
 <?php 
-    namespace Model\Interfaces;
+    namespace App\Model\Interfaces;
     
     interface UserInterface{
-        public function isAdmin($email);
-        public function registerAdmin($admin_code,$user_id);
+        public function isAdmin($email,$user_id);
+        public function updateAdmin($admin_code,$user_id);
 
     }    
 

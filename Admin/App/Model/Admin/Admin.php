@@ -1,5 +1,5 @@
 <?php 
-    namespace Model\Admin;
+    namespace App\Model\Admin;
     
     class Admin{
 
@@ -29,8 +29,8 @@
         public function getAdminEmail(){
             return $this->admin_email;
         }
-        public function setAdminCode($admin_id){
-            $this->admin_code="ADM-".$admin_id;
+        public function setAdminCode($admin_code){
+            $this->admin_code=$admin_code;
         }
         public function getAdminCode(){
             return $this->admin_code;

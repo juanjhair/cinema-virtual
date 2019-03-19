@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a href="#" class="mx-auto">
-                <strong class="title"><?php echo $name ?></strong>
+                <strong class="title">CINEMA VIRTUAL</strong>
             </a>
             <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav ml-auto mr-5" >

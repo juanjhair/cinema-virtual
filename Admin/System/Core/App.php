@@ -1,12 +1,42 @@
 <?php 
     namespace System\Core;
 
-    class App{
-        protected $controller="HomeController";
-        protected $method="actionIndex";
-        protected $params=[];
+    use System\Core\Router;
+    use System\Core\Helper;
 
-        public function __construct(){
+    class App{
+
+        public static function router($url){
+            try{
+                
+                $action=Router::getAction($url);
+                $controller=str_replace('Controller','',$action["controller"]);
+                $method=$action["method"];
+                if(!Helper::ValidateController($controller)){
+                    $controller = 'ErrorPage';
+                }else{
+                    $path_controller="App/Controller/"."{$controller}/";
+                    $controller.='Controller';
+                }
+                $path=str_replace('/',"\\",$path_controller."{$controller}");
+                
+                $controller=new $path($controller);
+                
+                if(!Helper::ValidateMethod($controller,$action["method"])){
+                    $method = 'exec';
+                }
+                if(!empty($_POST)){
+                    $response=$controller->$method($_POST);
+                    echo $response;
+                }else{
+                    $response=$controller->$method();
+                    echo $response;
+                }
+            }catch(\Exception $e){
+                echo $e->getMessage();
+            }
+        }
+        /*public function __construct(){
             $url=$this->parseUrl();
             $controller=$url[0];
             $controllerName=ucfirst(strtolower($url[0]))."Controller";
@@ -38,7 +68,7 @@
                 return explode("/",filter_var(rtrim($_GET["url"],"/"), FILTER_SANITIZE_URL));
             }
             
-        }
+        }*/
     }
 
 

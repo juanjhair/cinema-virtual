@@ -17,7 +17,7 @@ class Router{
   }
   public static function getAction($route){
     if(array_key_exists($route,static::$route)){
-      return static::$route[$route];
+      return self::$route[$route];
     }
     else{
       throw new \Exception("The route $route was not found");

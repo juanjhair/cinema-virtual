@@ -13,7 +13,7 @@
         }
         public function index(){
             
-            $this->render(__CLASS__,["name"=>"juan","apellido"=>"roda"]);
+            $this->render(__CLASS__);
             /*echo "<br>";
             echo __CLASS__;*/
             

@@ -10,7 +10,6 @@ var config = {
   firebase.initializeApp(config);
 
   function IngresoGoogle(){
-    console.log("<?php $name ?>");
     if(!firebase.auth().currentUser){
       var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -26,30 +25,30 @@ var config = {
         var response;
         
         $.ajax({
-            url:'http://localhost/cinema_virtual/Admin/User',
-            type: 'get',
+            url:'http://localhost/cinema_virtual/Admin/User/validate',
+            type: 'post',
             datatype: 'json',
             data: {
-                name: name/*,
+                name: name,
                 surname: surname,
                 email: email,
                 photo: photo,
-                red: red*/
+                red: red
             }
         }).done(function(res){
           response=JSON.parse(res);
           if(response.data==null){
-            alertError(response.message,"index.php");
+            alertError(response.message,"http://localhost/cinema_virtual/Admin/Home");
           }else{
-           alertWelcome(response.message,name,photo,"index.php");
+            alertWelcome(response.message,response.data.name,photo,"http://localhost/cinema_virtual/Admin/Home");
           }
         }).fail(function(){
-          alertError("An error occurred, try again please","index.php");
+          alertError("An error occurred, try again please","http://localhost/cinema_virtual/Admin/Home");
         })
       }).catch(function(error){
           var errorCode=error.code;
           if(errorCode==='auth/account-exist-with-diferent-credential'){
-            alert('El usuario ya existe');
+            //alert('El usuario ya existe');
           }
       });
     }else{

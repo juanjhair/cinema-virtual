@@ -3,7 +3,7 @@ function alertConfirm(){
 } 
 function alertWelcome(message,name,photo,url){
     Swal.fire({
-        titleText:"Welcome "+name,
+        titleText:message+name,
         imageUrl: photo,
         imageHeight:150,
         imageWidth: 150,

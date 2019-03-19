@@ -2,7 +2,9 @@
     namespace App\Controller\User;
 
     use System\Core\Controller;
-    use App\Model\User\User;
+    use App\Model\Session\Session;
+    use App\Model\Admin\AdminDAO;
+    use App\Model\User\UserDAO;
 
     class UserController extends Controller{
         
@@ -19,11 +21,48 @@
             echo __CLASS__;*/
             
         }
-        public function UserValidate($request=[]){
-            echo "hola";
-            /*echo "estoy en userValidate";
-            echo "<br>";
-            var_dump($request);*/
+        public function validate($request){
+            $session=new Session();
+            $userDAO=new UserDAO();
+            $adminDAO=new AdminDAO();
+            $name=$request['name'];
+            $surname=$request['surname'];
+            $email=$request['email'];
+            $photo=$request['photo'];
+            $red=$request['red'];
+
+            //OBJETS IF THERE IS AN ADMIM
+            
+            //$admin=$adminDAO->isAdmin($email);
+            
+            //ADD $_SESSION
+            $session->add('name',$name);
+            $session->add('surname',$surname);
+            $session->add('email',$email);
+            $session->add('photo',$photo);
+           
+            
+            if(($user=$userDAO->isUser($email)) == null){
+                /*--------------REGISTER------------------*/
+                /*$user=$userDAO->registerUser($request);
+                if(($user=$userDAO->registerUser($request))==false){
+                    return json_encode(array("message"=>"An error occurred, try again please... ","data"=>null)); 
+                
+                }else{
+                    return json_encode(array("message"=>"Successful registration ","data"=>array("user"=>$user->getUserSurname()))); 
+                
+                }*/
+                return json_encode(array("message"=>"You aren't admin, try again...","data"=>null)); 
+                
+            }
+            else{
+                if(($admin=$adminDAO->isAdmin($email,$user->getUserId()))==null){
+                    return json_encode(array("message"=>"You aren't admin, try again... ","data"=>null)); 
+                }else{
+                    return json_encode(array("message"=>"Welcome ","data"=>array("name"=>$user->getUserName()))); 
+                
+                }
+            }
         }
     }
 

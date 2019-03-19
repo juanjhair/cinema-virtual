@@ -3,75 +3,81 @@
     
     class User{
 
-        private $users_id;
-        private $users_name;
-        private $users_surname;
-        private $users_birthday;
-        private $users_email;
-        private $users_pass;
-        private $users_phone;
-        private $users_photo;
-        private $users_created_date;
+        private $user_id;
+        private $user_code;
+        private $user_dni;
+        private $user_name;
+        private $user_surname;
+        private $user_birthday;
+        private $user_email;
+        private $user_phone;
+        private $user_photo;
+        private $user_created_date;
 
-        public static function data(){
-            return "data de use";
-        }
+        
         public function __contruct(){
 
         }
-        public function setUserId($users_id){
-            $this->users_id=$users_id;
+        public function setUserId($user_id){
+            $this->user_id=$user_id;
         }
         public function getUserId(){
-            return $this->users_id;  
+            return $this->user_id;  
         }
-        public function setUserName($users_name){
-            $this->users_name=$users_name;
+        public function setUserCode($user_code){
+            $this->user_code=$user_code;
+        }
+        public function getUserCode(){
+            return $this->user_code;  
+        }
+        public function setUserDni($user_dni){
+            $this->user_dni=$user_dni;
+        }
+        public function getUserDni(){
+            return $this->user_dni;  
+        }
+        public function setUserName($user_name){
+            $this->user_name=$user_name;
         }
         public function getUserName(){
-            return $this->users_name; 
+            return $this->user_name; 
         }
-        public function setUserSurname($users_surname){
-            $this->users_surname=$users_surname;
+        public function setUserSurname($user_surname){
+            $this->user_surname=$user_surname;
         }
         public function getUserSurname(){
-            return $this->users_surname; 
+            return $this->user_surname; 
         }
-        public function setUserBirthdaye($users_birthday){
-            $this->users_birthday=$users_birthday;
+        public function setUserBirthday($user_birthday){
+            $this->user_birthday=$user_birthday;
         }
         public function getUserBirthday(){
-            return $this->users_birthday; 
+            return $this->user_birthday; 
         }
-        public function setUserEmail($users_email){
-            $this->users_email=$users_email;
+        public function setUserEmail($user_email){
+            $this->user_email=$user_email;
         }
         public function getUserEmail(){
-            return $this->users_email; 
+            return $this->user_email; 
         }
-        public function setUserPass($users_pass){
-            $this->users_pass=$users_pass;
-        }
-        public function getUserPass(){
-            return  $this->users_pass;
-        }
-        public function setUserPhone($users_phone){
-            $this->users_phone=$users_phone;
+        
+        public function setUserPhone($user_phone){
+            $this->user_phone=$user_phone;
         }
         public function getUserPhone(){
-            return $this->users_phone;
+            return $this->user_phone;
         }
-        public function setUserPhoto($users_photo){
-            $this->users_photo=$users_photo;
+        public function setUserPhoto($user_photo){
+            $this->user_photo=$user_photo;
         }
         public function getUserPhoto(){
-            return $this->users_photo;
+            return $this->user_photo;
         }
-        public function setUserCreatedDate($users_created_date){
-            $this->users_created_date=$users_created_date;
+        public function setUserCreatedDate($user_created_date){
+            $this->user_created_date=$user_created_date;
         }
         public function getUserCreatedDate(){
-            return $this->users_created_date;
+            return $this->user_created_date;
         }
 
 
