@@ -1,22 +1,15 @@
 <?php
 namespace System\Core;
 
+use App\Model\Datasource\Datasource;
+
 class Model
 {
+  protected $datasource;
   
-  /**
-  * Inicializa conexion
-  */
   public function __construct()
   {
-    
-    }
-
-  /**
-  * Finaliza conexion
-  */
-  public function __destruct()
-  {
-    
+      $this->datasource=new Datasource();
   }
+
 }

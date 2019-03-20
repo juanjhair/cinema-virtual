@@ -4,7 +4,7 @@
     use System\Core\Router;
     
     Router::add("Home","HomeController@index");
-    Router::add("User/validate","UserController@validate");
+    Router::add("User/login","UserController@login");
 
 
 

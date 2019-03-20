@@ -21,26 +21,17 @@
             echo __CLASS__;*/
             
         }
-        public function validate($request){
+        public function login($request){
             $session=new Session();
             $userDAO=new UserDAO();
             $adminDAO=new AdminDAO();
+            
             $name=$request['name'];
             $surname=$request['surname'];
             $email=$request['email'];
             $photo=$request['photo'];
             $red=$request['red'];
-
-            //OBJETS IF THERE IS AN ADMIM
             
-            //$admin=$adminDAO->isAdmin($email);
-            
-            //ADD $_SESSION
-            $session->add('name',$name);
-            $session->add('surname',$surname);
-            $session->add('email',$email);
-            $session->add('photo',$photo);
-           
             
             if(($user=$userDAO->isUser($email)) == null){
                 /*--------------REGISTER------------------*/
@@ -52,11 +43,17 @@
                     return json_encode(array("message"=>"Successful registration ","data"=>array("user"=>$user->getUserSurname()))); 
                 
                 }*/
+
                 return json_encode(array("message"=>"You aren't admin, try again...","data"=>null)); 
                 
             }
             else{
                 if(($admin=$adminDAO->isAdmin($email,$user->getUserId()))==null){
+                    /*--------------------ADD $_SESSION--------------------*/ 
+                    $session->add('name',$name);
+                    $session->add('surname',$surname);
+                    $session->add('email',$email);
+                    $session->add('photo',$photo);
                     return json_encode(array("message"=>"You aren't admin, try again... ","data"=>null)); 
                 }else{
                     return json_encode(array("message"=>"Welcome ","data"=>array("name"=>$user->getUserName()))); 

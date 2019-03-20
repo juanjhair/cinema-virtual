@@ -25,7 +25,7 @@ var config = {
         var response;
         
         $.ajax({
-            url:'http://localhost/cinema_virtual/Admin/User/validate',
+            url:'http://localhost/cinema_virtual/Admin/User/login',
             type: 'post',
             datatype: 'json',
             data: {
