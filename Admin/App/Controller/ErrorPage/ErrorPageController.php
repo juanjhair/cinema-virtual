@@ -1,4 +1,7 @@
 <?php
+namespace App\Controller\ErrorPage;
+
+use System\Core\Controller;
 
 class ErrorPageController extends Controller
 {
@@ -9,11 +12,11 @@ class ErrorPageController extends Controller
     $this->path_inicio = FOLDER_PATH;
   }
   
-  public function exec()
+  public function index()
   {
-    //$this->render(__class__, array('path_inicio' => $this->path_inicio));
-    echo "page error";
-}
+    $this->render(__CLASS__, array('path_inicio' => $this->path_inicio));
+    
+  }
 }
 
 ?>

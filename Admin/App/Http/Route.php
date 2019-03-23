@@ -3,7 +3,7 @@
     
     use System\Core\Router;
     
-    Router::add("Home","HomeController@index");
+    Router::add("Home","HomeController@");
     Router::add("User/login","UserController@login");
 
 

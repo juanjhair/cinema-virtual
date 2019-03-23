@@ -14,16 +14,19 @@
                 $method=$action["method"];
                 if(!Helper::ValidateController($controller)){
                     $controller = 'ErrorPage';
+                    $path_controller="App/Controller/"."{$controller}/";
+                    $controller.='Controller';
                 }else{
                     $path_controller="App/Controller/"."{$controller}/";
                     $controller.='Controller';
                 }
+                
                 $path=str_replace('/',"\\",$path_controller."{$controller}");
                 
-                $controller=new $path($controller);
-                
+                $controller=new $path();
+
                 if(!Helper::ValidateMethod($controller,$action["method"])){
-                    $method = 'exec';
+                    $method = 'index';
                 }
                 if(!empty($_POST)){
                     $response=$controller->$method($_POST);

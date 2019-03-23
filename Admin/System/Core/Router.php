@@ -11,7 +11,7 @@ class Router{
   public static function add($route,$controller_method){
     $array_route=explode("@",$controller_method);
     if(empty($array_route[1])){
-      $array_route[1]='exec';
+      $array_route[1]='index';
     }
     self::$route[$route]=["controller"=>$array_route[0],"method"=>$array_route[1]];
   }

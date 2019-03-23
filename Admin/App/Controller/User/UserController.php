@@ -8,10 +8,7 @@
 
     class UserController extends Controller{
         
-        public function __construct($controller_name){
-            
-           // $this->class=$controller_name;
-
+        public function __construct(){
             
         }
         public function index(){

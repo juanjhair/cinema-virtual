@@ -14,5 +14,6 @@ class Helper{
     {   
         return method_exists($controller,$method) ? true : false;
     }
+    
 
 }
