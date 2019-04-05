@@ -2,10 +2,10 @@
     namespace App\Model\User;
 
     use App\Model\User\User;
-    use App\Model\Datasource\Datasource;
     use App\Model\Time\Time;
+    use System\Core\Model;
 
-    class UserDAO{
+    class UserDAO extends Model{
 
         private $table="user";
         private $user_array=[];
@@ -16,8 +16,7 @@
         }
         public function isUser($email){
             $user=new User();
-            $datasource=new Datasource();
-            $dataquery=$datasource->executeQuery("SELECT * FROM user WHERE user_email=? ",array($email));
+            $dataquery=$this->datasource->executeQuery("SELECT * FROM user WHERE user_email=? ",array($email));
             
             if(count($dataquery)!=0){
                 $user=$this->setUser($user,$dataquery);
@@ -28,8 +27,7 @@
             }
         }
         public function countUser(){
-            $datasource=new Datasource();
-            $dataquery=$datasource->executeQuery_count("SELECT * FROM user ");
+            $dataquery=$this->datasource->executeQuery_count("SELECT * FROM user ");
             
             return $dataquery+1;
             
@@ -60,7 +58,6 @@
             return $user;
         }
         public function registerUser($request){
-            $datasource=new DataSource();
             $time=new Time();
             $user=new User();
 
@@ -75,7 +72,7 @@
             (DEFAULT, :user_code, :user_name, :user_surname, 
             :user_email, :user_photo, :user_created_date)";
 
-            if($datasource->executeQuery_insert($sql,$request,$this->table,$this->parameters)){
+            if($this->datasource->executeQuery_insert($sql,$request,$this->table,$this->parameters)){
                 $user=$this->isUser($request["email"]);
                 return $user;
             }else{

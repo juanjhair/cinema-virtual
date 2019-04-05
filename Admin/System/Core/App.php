@@ -1,6 +1,7 @@
 <?php 
-    namespace System\Core;
 
+    namespace System\Core;
+    
     use System\Core\Router;
     use System\Core\Helper;
 
@@ -8,7 +9,6 @@
 
         public static function router($url){
             try{
-                
                 $action=Router::getAction($url);
                 $controller=str_replace('Controller','',$action["controller"]);
                 $method=$action["method"];

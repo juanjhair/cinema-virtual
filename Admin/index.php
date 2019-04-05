@@ -13,6 +13,9 @@ require 'App/Http/Route.php';
 
 $url=$_GET["url"];
 
+if($url==""){
+    $url="/";
+}
 App::router($url);
 
 

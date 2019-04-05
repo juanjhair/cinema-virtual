@@ -47,17 +47,23 @@
                 return false;   
             }
         }
-        public function executeQuery_insert($sql="",$value=array(),$table,$parameters=[]){
-            $array=[];
+        public function executeQuery_insert($sql="",$value=array(),$table,$parameters){
+            
             $query="";
             if($sql!="" && $parameters!=""){
                 
                 $query=$this->conexion->prepare($sql);
+                $array=array();
                 foreach($value as $key=>$values){
+                   
                     if(in_array($table."_".$key,$parameters)){
+                        
                         $query->bindparam(":".$table."_".$key,$value[$key]);
+                        
                     }
+                    
                 }
+                
                 $query->execute();
                 $query=null;
                 return true;

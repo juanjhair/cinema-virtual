@@ -16,10 +16,10 @@ $(document).on("click","#add-room",function(){
     }
 }); 
 
-$(document).on("click","#btn-rooms",function(e){
+$(document).on("click","#btn-insert",function(e){
     e.preventDefault();
     var data=[];
-    var json;
+    var json_data;
     var i=1;
     while(i<=index_room){
         data.push({
@@ -29,16 +29,16 @@ $(document).on("click","#btn-rooms",function(e){
         });
         i++;
     }
-    json ='{'+
+    json_data ='{'+
             '"quantity":'+index_room+','+
             '"data":'+JSON.stringify(data)+
           '}'
     $.ajax({
-        url:'controller/room.php',
+        url:'http://localhost/cinema_virtual/Admin/Room/insert',
         type: 'post',
         datatype: 'json',
         data: {
-            json
+            json_data
         },
         beforeSend: function () {
             alert("Se esta enviando...");
@@ -46,12 +46,50 @@ $(document).on("click","#btn-rooms",function(e){
     }).done(function(res){
         response=JSON.parse(res);
         if(response.data==null){
-            alert(response.message);
+            alertError(response.message,"http://localhost/cinema_virtual/Admin/Home");
         }else{
-            alert(response.message);
+            alertSuccess(response.message);
         }
     }).fail(function(){
         alert("An error occurred, try again please");
     })
 });
 
+$(document).on("click","#show-tab",function(e){
+    e.preventDefault();
+    //$("#content-show").empty();
+    $.ajax({
+        url:   'http://localhost/cinema_virtual/Admin/Room/show',
+        type:  'get',
+        beforeSend: function () {
+            $('#content-show').html("Espere un momento");
+        }
+    }).done(function(response){
+        $('#content-show').append(response);
+        //evento();
+      }).fail(function(){
+        alertError("An error occurred, try again please","http://localhost/cinema_virtual/Admin/Home");
+      });
+
+});
+
+function edit(id){
+    
+    $.ajax({
+        url:   'http://localhost/cinema_virtual/Admin/Room/show',
+        type:  'get',
+        beforeSend: function () {
+            $('#content-show').html("Espere un momento");
+        }
+    }).done(function(response){
+        $('#content-show').append(response);
+        //evento();
+      }).fail(function(){
+        alertError("An error occurred, try again please","http://localhost/cinema_virtual/Admin/Home");
+      });
+
+}
+
+    
+   
+   

@@ -11,7 +11,7 @@
         }
         public function index(){
             
-            $this->render(__CLASS__);
+            $this->render(__CLASS__,'Home');
             
         }
     }

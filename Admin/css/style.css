@@ -1,10 +1,9 @@
 
-
 /* ----FORM---- */
 
 /* ----CONTENT---- */
-.content {
-    background-color:#f3f3f3;
+.content-all {
+    background:#f3f3f3;
 }
 .fixed-top {
     background:rgba(0,0,0,.5);
@@ -40,6 +39,10 @@ footer a{
 }
 
 /* ----CARD---- */
+.card-title {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
 .options{
     margin-top: 7rem;
 }
@@ -49,6 +52,11 @@ footer a{
 .opt{
     transform: scale(1.1);
 }
+/*@media only screen and (max-width: 768px) {
+    .card-title{
+        font-size: 1.2rem;
+    }
+}*/
 
 /* ----ICONS---- */
 
@@ -56,4 +64,13 @@ footer a{
     height:1.5rem;
    /* margin-top: 2.1rem;*/
    /* margin-left: 0;*/
+}
+
+
+/* ---- CARD FONT ----*/
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+}
+.nav-tabs .nav-link {
+    color:#fff;
 }

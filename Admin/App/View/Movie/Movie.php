@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-success">
             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Insert</a>
@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label class="font-weight-bold">Gender</label>
                                     <select class="form-control">
-                                        <option>genero</option>
+                                        <option selected disabled>Select</option>
                                         <option>Action</option>
                                         <option>Adventura</option>
                                         <option>Comedy</option>
@@ -68,7 +68,7 @@
                                 <div class="form-group ">
                                     <label class="font-weight-bold">State</label>
                                     <select class="form-control">
-                                        <option>estado</option>
+                                        <option selected disabled>Select</option>
                                         <option>Premiere</option>
                                         <option>Coming soon</option>
                                         <option>Estreno</option>
@@ -84,7 +84,7 @@
                                 <div class="row text-center">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
                                         <label class="">Spanish</label>
-                                        <img src="images/icons/plus-circle-solid.svg" class="icons" id="spanish"></img>
+                                        <img src="images/icons/plus-circle-solid.svg" class="icons" id="spanish">
                                     </div>
                                 </div>
                                 <div class="row bg-light">
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="col-4 col-sm-3">
                                         <div class="form-group ">
-                                            <label class="font-weight-bold" for="room-spa-1">Room</label>
+                                            <label for="room-spa-1">Room</label>
                                             <select class="form-control mb-3" id="room-spa-1" name="room-spa-1">
                                                 <option>1</option>
                                                 <option>2</option>
@@ -114,7 +114,7 @@
                                 <div class="row text-center">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
                                         <label class="">Subtitle</label>
-                                        <img src="images/icons/plus-circle-solid.svg" class="icons" id="sub"></img>
+                                        <img src="images/icons/plus-circle-solid.svg" class="icons" id="sub">
                                     </div>
                                 </div>
                                 <div class="row bg-light">
@@ -128,7 +128,7 @@
                                     </div>
                                     <div class="col-4 col-sm-3" >
                                         <div class="form-group ">
-                                            <label class="font-weight-bold" for="room-sub-1">Room</label>
+                                            <label for="room-sub-1">Room</label>
                                             <select class="form-control mb-3" id="room-sub-1" name="room-sub-1">
                                                 <option>1</option>
                                                 <option>2</option>

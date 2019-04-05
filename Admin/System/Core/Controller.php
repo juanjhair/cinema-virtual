@@ -13,10 +13,10 @@ abstract class Controller
   /**
    * Inicializa la vista
    */
-  public function render($controller_name = '', $params = array())
+  public function render($controller_name,$view, $params = array())
   {
     
-    $this->view = new View($controller_name, $params);
+    $this->view = new View($controller_name,$view, $params);
     
   }
 

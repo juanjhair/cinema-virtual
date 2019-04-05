@@ -1,7 +1,6 @@
 <?php @session_start();?>
 <?php include 'Extend/Header.php'; ?>
-
-<body class="content">
+<body class="content-all">
     <!-- SECTION NAV -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
@@ -28,7 +27,7 @@
                     </li>
                 </ul>
             </div>
-            <?php if(!isset($_SESSION['admin_code'])){
+            <?php if(!isset($_SESSION['code'])){
                 ?>
                 <a href="#">
                 <i class="fa fa-user-circle"></i>
@@ -37,7 +36,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-white" id="perfil" role="button" data-toggle="dropdown" 
                             aria-haspopup="true" aria-expanded="false">
-                        <img src="<?php echo $_SESSION['admin_photo'] ?>" width="35" height="35" class="rounded-circle" alt="">        
+                        <img src="<?php echo $_SESSION['photo'] ?>" width="35" height="35" class="rounded-circle" alt="">        
                     </a>
                 <div class="dropdown-menu" aria-labelledby="perfil">
                     <a href="#" class="dropdown-item">Perfil</a>
@@ -48,7 +47,7 @@
         </div>
     </nav>
     
-    <?php if(!isset($_SESSION['admin_code'])) { 
+    <?php if(!isset($_SESSION['code'])) { 
          include PATH_VIEWS.'Login/Login.php'; ?>
     <?php }else { ?>
     
@@ -57,69 +56,56 @@
     <section class="options text-white">    
         <div class="container">
             <div class="row">
-                <div class="col-3 text-center" >
+                <div class="col-2 col-sm-2 offset-sm-1 col-md-3 text-center" >
                     <div class="row">
                         <div class="col-12 d-flex mb-4 option">
                             <div class="card bg-dark flex-fill" id="rooms">
-                                <div class="card-body">
-                                <h5 class="card-title">CINEMA'S ROOM</h5>
-                                </div>
+                                <div class="card-title" id="title-room">CINEMA'S ROOM</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex mb-4 option" >
                             <div class="card bg-success flex-fill" id="movies">
-                                <div class="card-body">
-                                    <h5 class="card-title" >MOVIES</h5>
-                                </div>
+                                <div class="card-title" id="title-movie">MOVIES</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12 d-flex mb-4 option">
                             <div class="card bg-danger flex-fill" id="movies-premiere">
-                                <div class="card-body">
-                                    <h5 class="card-title">MOVIES PREMIERE</h5>
-                                </div>
+                                <div class="card-title" id="title-premiere">MOVIES PREMIERE</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex mb-4 option">
                             <div class="card bg-warning flex-fill">
-                                <div class="card-body">
-                                    <h5 class="card-title">TICKETS SOLD</h5>
-                                </div>
+                                <div class="card-title" id="title-sold">TICKETS SOLD</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex mb-4 option">
                             <div class="card bg-secondary flex-fill">
-                                <div class="card-body">
-                                    <h5 class="card-title">CINEMAS</h5>
-                                </div>
+                                <div class="card-title" id="title-cinema">CINEMAS</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex mb-4 option">
                             <div class="card bg-info flex-fill">
-                                <div class="card-body ">
-                                    <h5 class="card-title">ABOUT US</h5>
-                                </div>
+                                <div class="card-title" id="title-about">ABOUT US</div>
                             </div>
                         </div>
                     </div>
                     
                 </div>
-                <div class="col-9">
-                    <div id="content">
+                <div class="col-10 col-sm-9 col-md-8">
+                    <div id="content" class="content" >
                     </div>
                 </div>
-                <input type="hidden" value="<?php echo $_SESSION['admin_id']; ?>" id="admin_id">
-                
+               
             </div>
         </div>
     </section>

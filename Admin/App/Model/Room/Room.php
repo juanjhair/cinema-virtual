@@ -1,4 +1,5 @@
 <?php
+    namespace App\Model\Room;
 
     class Room{
 
@@ -8,6 +9,7 @@
         private $room_seats;
         private $room_state;
         private $room_admin_id; 
+        
         public function __construct(){
 
         }

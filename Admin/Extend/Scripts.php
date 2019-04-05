@@ -11,3 +11,4 @@
   <script src="js/firebase.js"></script> 
   <script src="js/events.js"></script>
   <script src="js/events_ajax.js"></script>
+  <script src="js/size.js"></script>
